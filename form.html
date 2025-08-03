@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Form</title>
+  <link rel="stylesheet" href="style.css"/>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css
+
+
+
+">
+
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f4f8;
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+
+  nav {
+            height: 35px;
+        }
+
+        ul {
+            display: flex;
+            list-style-type: none;
+            margin: 0;
+            padding: 10px;
+            justify-content: center;
+            gap: 40px;
+            font-size: larger;
+            font-family: "Roboto", sans-serif;
+
+        }
+
+        li a {
+            text-decoration: none;
+            color: white;
+
+        }
+
+        li a:hover {
+            color: #4db09c;
+
+        }
+
+
+        .nav_container {
+            display: flex;
+            justify-content: space-around;
+            background-color: #3e9080;
+            align-items: center;
+            height: 55px;
+        }
+
+        .logo-head {
+
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .imge {
+            padding-top: 40px;
+        } 
+
+
+.form-container {
+  background-color: #fff;
+  padding: 25px 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  margin-top: 50px;
+  margin-left: 500px;
+}
+
+h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+}
+
+form label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+  color: #555;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+form button {
+  width: 100%;
+  padding: 12px;
+  background-color: #3e9080;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+form button:hover {
+  background-color: #337368;
+}
+
+
+.product-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.product-row label {
+  font-weight: bold;
+  color: #3e9080;
+}
+
+.product-row input[type="number"] {
+  padding: 10px;
+  font-size: 16px;
+  width: 70px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.product-image {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+}
+
+  </style>
+</head>
+<body>  
+
+ <header>
+        <div class="nav_container">
+            <div class="logo-head">
+                <img class="imge" src="c:\Users\CompuTech\Downloads\pureflora\img\logo.png" alt=""
+                    style="width: 30px; height: 30px;">
+                <h6 style="color:rgb(65, 41, 41); font-size:20px; ">pureflora</h6>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="project.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="form.html">Buy Now</a></li>
+                    <li><a href="about us.html">About us</a></li>
+                        <li>
+  <a href="#">
+    <i class="fa-solid fa-cart-shopping" style="color: rgb(229, 226, 226); position: relative; top: 2px; left: 150px;"></i>
+    <span id="cart-count" style="color: white; font-size: 14px; position: relative; left: 155px; top: -10px;">0</span>
+  </a>
+</li>
+
+                </ul>
+                </nav>
+
+        </div>
+    </header>
+
+
+  <div class="form-container">
+    <h2>Pure flora</h2>
+    <form action="order.html">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" placeholder="Your name" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Your email" required>
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="phone" placeholder="Your phone number" required>
+
+      <label for="address">Address</label>
+      <textarea id="address" name="address" placeholder="Your address" rows="4" required></textarea>
+
+
+      <div class="product-row">
+  <label for="quantity">Quantity:</label>
+  <input type="number" id="quantity" name="quantity" min="1" value="1" />
+</div>
+
+      <button type="submit">Place Order</button>
+    </form>
+  </div>
+
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const cartCount = localStorage.getItem("cartCount") || 0;
+    document.getElementById("cart-count").innerText = cartCount;
+  });
+
+  function handleAddToCart() {
+    let count = localStorage.getItem("cartCount") || 0;
+    count = parseInt(count) + 1;
+    localStorage.setItem("cartCount", count);
+    document.getElementById("cart-count").innerText = count;
+
+    // يمكنك إزالة هذا إذا لا تريدين الانتقال تلقائيًا:
+    // window.location.href = "form.html";
+  }
+</script>
+
+
+</body>
+</html>

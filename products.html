@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css
+
+
+
+">
+    <style>
+        body{
+            margin: 0;
+        }
+         h1{
+            font-family: "Afacad", sans-serif;
+        text-align: center;
+        color: #1c5b4e;
+        font-size: 40px;
+        margin: 90px 50px;
+    }
+   nav {
+            height: 35px;
+        }
+
+        ul {
+            display: flex;
+            list-style-type: none;
+            margin: 0;
+            padding: 10px;
+            justify-content: center;
+            gap: 40px;
+            font-size: larger;
+            font-family: "Roboto", sans-serif;
+
+        }
+
+        li a {
+            text-decoration: none;
+            color: white;
+
+        }
+
+        li a:hover {
+            color: #4db09c;
+
+        }
+
+
+        .nav_container {
+
+            display: flex;
+            justify-content: space-around;
+            background-color: #3e9080;
+            align-items: center;
+            height: 55px;
+        }
+
+        .logo-head {
+
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .imge {
+            padding-top: 40px;
+        }
+
+        
+
+    h3,h4{
+        color: #2a4d44;
+        font-size: 18px;
+        font-family: "Roboto", sans-serif;
+    }
+    .cards{
+        display: grid;
+        grid-template-columns: 310px 310px 310px ;
+        justify-content: center;
+        gap: 15px;
+    margin-bottom: 40px;
+   
+
+    }
+
+    img{
+        width: 120px;
+        height: 140px;
+    }
+
+    .card{
+        display: flex;
+        background-color: #bad9d3;
+         border: none;
+    border-radius: 10px;
+    align-items: center;
+    height: 220px;
+ text-align: center;
+/* margin: 5px; */
+    }
+    
+    button{
+         width: 70%;
+        
+  padding: 12px;
+  background-color: whitesmoke;
+   background-color: #3e9080;
+      color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+    }
+
+
+         button:hover {
+  background-color:   #2f6b5f;
+  color: white;
+}
+
+
+button a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+    </style>
+</head>
+<body>
+     <header>
+        <div class="nav_container">
+            <div class="logo-head">
+                <img class="imge" src="c:\Users\CompuTech\Downloads\pureflora\img\logo.png" alt=""
+                    style="width: 30px; height: 30px;">
+                <h6 style="color:rgb(65, 41, 41); font-size:20px; ">pureflora</h6>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="project.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="form.html">Buy Now</a></li>
+                    <li><a href="about us.html">About us</a></li>
+                <li>
+  <a href="#">
+    <i class="fa-solid fa-cart-shopping" style="color: rgb(229, 226, 226); position: relative; top: 2px; left: 150px;"></i>
+    <span id="cart-count" style="color: white; font-size: 14px; position: relative; left: 155px; top: -10px;">0</span>
+  </a>
+</li>
+
+                </ul>
+                </nav>
+
+        </div>
+    </header>
+
+    <h1>Flowers for any occasion</h1>
+    <div class="cards">
+        <div class="card"> <img src="card-1.png" alt=""><div><h3>plants for interiors</h3><h4>50$</h4><button onclick="handleAddToCart()"><a href="form.html">Add to cart</a></button></div></div>
+        <div class="card"> <img src="card-1.png" alt=""><div><h3>plants for garden</h3><h4>50$</h4><button onclick="handleAddToCart()"><a href="form.html">Add to cart</a></button></div></div>
+        <div class="card"> <img src="card-1.png" alt=""><div><h3>plants for garden</h3><h4>50$</h4><button onclick="handleAddToCart()"><a href="form.html">Add to cart</a></button></div></div>
+        <div class="card"> <img src="card-1.png" alt=""><div><h3>plants for garden</h3><h4>50$</h4><button onclick="handleAddToCart()"><a href="form.html">Add to cart</a></button></div></div>
+        <div class="card"> <img src="card-1.png" alt=""><div><h3>plants for garden</h3><h4>50$</h4><button onclick="handleAddToCart()"><a href="form.html">Add to cart</a></div></div>
+        <div class="card"> <img src="card-1.png" alt=""><div><h3>plants for garden</h3><h4>50$</h4><button onclick="handleAddToCart()"><a href="form.html">Add to cart</a></div></div>
+
+    </div>
+
+
+<script>
+  // استرجاع عدد المنتجات من localStorage عند تحميل الصفحة
+  document.addEventListener("DOMContentLoaded", function () {
+    const cartCount = localStorage.getItem("cartCount") || 0;
+    document.getElementById("cart-count").innerText = cartCount;
+  });
+
+  function handleAddToCart() {
+    // زيادة العدد وتخزينه
+    let count = localStorage.getItem("cartCount") || 0;
+    count = parseInt(count) + 1;
+    localStorage.setItem("cartCount", count);
+    document.getElementById("cart-count").innerText = count;
+
+    // يمكنك إزالة هذا إذا لا تريدين الانتقال تلقائيًا:
+    // window.location.href = "form.html";
+  }
+</script>
+
+
+</body>
+</html>
